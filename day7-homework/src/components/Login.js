@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 function Login({ setUser }) {
   const [email, setEmail] = useState("");
@@ -13,26 +15,16 @@ function Login({ setUser }) {
       setUser(userData);
       navigate("/home");
     } else {
-      alert("Sai email hoặc mật khẩu!");
+      alert("Wrong email or password!");
     }
   };
 
   return (
     <div style={{ padding: 20 }}>
-      <h2>Đăng nhập</h2>
-      <input
-        type="text"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      /><br />
-      <input
-        type="password"
-        placeholder="Mật khẩu"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      /><br />
-      <button onClick={handleLogin}>Login</button>
+      <h2>Login</h2>
+      <TextField style={{ paddingBottom: "10px" }} id="outlined-basic" label="Email" variant="outlined" type="email" value={email} onChange={(e) => setEmail(e.target.value)} /><br />
+      <TextField style={{ paddingBottom: "10px" }} id="outlined-basic" label="Passwork" variant="outlined" type="passwork" value={password} onChange={(e) => setPassword(e.target.value)} /><br />
+      <Button variant="contained" type="sumbit" onClick={handleLogin}>Login</Button>
     </div>
   );
 }

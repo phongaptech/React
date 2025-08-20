@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Button from '@mui/material/Button';
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -18,10 +19,10 @@ function Home() {
           <h3>{p.title}</h3>
           <img src={p.image} alt={p.title} style={{ width: 100 }} />
           <p>Giá: ${p.price}</p>
-          <Link to={`/product/${p.id}`}><button>Xem chi tiết</button></Link>
+          <Link to={`/product/${p.id}`}><Button variant="outlined">Detail</Button></Link>
         </div>
       ))}
-      <Link to="/cart"><button>Giỏ hàng</button></Link>
+      <Link to="/cart"><Button variant="contained">Cart</Button></Link>
     </div>
   );
 }

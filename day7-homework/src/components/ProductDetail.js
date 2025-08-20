@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import Button from '@mui/material/Button';
 
 function ProductDetail() {
   const { id } = useParams();
@@ -28,7 +29,7 @@ function ProductDetail() {
       <img src={product.image} alt={product.title} style={{ width: 200 }} />
       <p>{product.description}</p>
       <p>Giá: ${product.price}</p>
-      <button onClick={addToCart}>Thêm vào giỏ</button>
+      <Button variant="contained" onClick={addToCart}>Thêm vào giỏ</Button>
     </div>
   );
 }
